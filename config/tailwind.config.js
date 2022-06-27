@@ -10,8 +10,34 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        title: ['Parisienne', ...defaultTheme.fontFamily.sans],
       },
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: '#3678c2',
+
+          secondary: '#60b524',
+
+          accent: '#878a8f',
+
+          neutral: '#434c55',
+
+          'base-100': '#FFFFFF',
+
+          info: '#3678c2',
+
+          success: '#60b524',
+
+          warning: '#FBBD23',
+
+          error: '#F87272',
+        },
+      },
+    ],
   },
   plugins: [
     require('@tailwindcss/forms'),
