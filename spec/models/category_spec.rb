@@ -18,7 +18,7 @@ RSpec.describe Category, type: :model do
     end
 
     it 'should have a max length of 250' do
-      subject.name = 251.times.reduce('') { |t, _i| t + '9' }
+      subject.name = 251.times.reduce('') { |t, _i| "#{t}9" }
       expect(subject).to_not be_valid
     end
   end
@@ -30,7 +30,7 @@ RSpec.describe Category, type: :model do
     end
 
     it 'should have a max length of 500' do
-      subject.icon = 501.times.reduce('') { |t, _i| t + '9' }
+      subject.icon = 501.times.reduce('') { |t, _i| "#{t}9" }
       expect(subject).to_not be_valid
     end
   end
