@@ -4,5 +4,5 @@ class Expense < ApplicationRecord
                       foreign_key: 'author_id'
 
   validates :name, presence: true, length: { maximum: 250 }
-  validates :amount, numericality: { only_integer: true, greater_than: 0 }
+  validates :amount, numericality: { greater_than: 0 }
 end
