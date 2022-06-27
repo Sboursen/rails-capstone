@@ -1,7 +1,87 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+users = User.create!([
+  {
+    name: 'Soufiane',
+    email: 'soufiane@gmail.com',
+    password: '123123'
+  },
+  {
+    name: 'Hicham',
+    email: 'mwafrika@gmail.com',
+    password: '123123'
+  },
+  {
+    name: 'Leyla ',
+    email: 'leyla@gmail.com',
+    password: '123123'
+  },
+])
+
+
+expenses = Expense.create!([
+  {
+    name: 'Expense 1',
+    amount: 24.5,
+    author: users.first
+  },
+  {
+    name: 'Expense 2',
+    amount: 100,
+    author: users.first
+  },
+  {
+    name: 'Expense 3',
+    amount: 22,
+    author: users.second
+  },
+  {
+    name: 'Expense 4',
+    amount: 45.5,
+    author: users.last
+  },
+  {
+    name: 'Expense 5',
+    amount: 200,
+    author: users.second
+  },
+  {
+    name: 'Expense 6',
+    amount: 360,
+    author: users.last
+  },
+])
+
+
+
+categories = Category.create!([
+  {
+    name: 'Category 1',
+    icon: 'https://example.com/icon.jpg',    
+    author: users.first
+  },
+  {
+    name: 'Category 2',
+    icon: 'https://example.com/icon.jpg',
+    author: users.first
+  },
+  {
+    name: 'Category 3',
+    icon: 'https://example.com/icon.jpg',
+    author: users.second
+  },
+  {
+    name: 'Category 4',
+    icon: 'https://example.com/icon.jpg',
+    author: users.last
+  },
+  {
+    name: 'Category 5',
+    icon: 'https://example.com/icon.jpg',
+    author: users.second
+  },
+  {
+    name: 'Category 6',
+    icon: 'https://example.com/icon.jpg',
+    author: users.last
+  },
+])
+
