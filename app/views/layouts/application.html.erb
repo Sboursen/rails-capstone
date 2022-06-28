@@ -12,12 +12,16 @@
   </head>
 
   <body>
-    <header class="hidden">
-      <%= render 'shared/nav' %>
-    </header>
-    <main>
+    <div>
+      <% if current_user.present? %>
+        <%=form_with model: User.new, url: destroy_user_session_path, method: :delete do %>
+          <button class="text-red-600">Sign out</button>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="w-full">
       <%= yield %>
-    </main>
+    </div>
     <div>
       <% flash.each do |type, msg| %>
         <% if type == "info" %>

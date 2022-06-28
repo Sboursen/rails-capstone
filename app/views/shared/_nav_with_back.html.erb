@@ -1,0 +1,18 @@
+<div class="navbar bg-primary text-base-100">
+  <div class="navbar-start">
+    <%=form_with url: root_path, method: :get do %>
+      <button class="btn btn-ghost btn-circle text-xl font-thin">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+    <% end %>
+
+  </div>
+  <div class="navbar-center font-semibold text-2xl">
+    <%= title %>
+  </div>
+  <div class="navbar-end">
+    <button class="btn btn-ghost">
+     Next
+    </button>
+  </div>
+</div>
