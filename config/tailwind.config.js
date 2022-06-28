@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: [
@@ -44,5 +45,8 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('daisyui'),
+    plugin(function ({ addVariant }) {
+      addVariant('third', '&:nth-child(3)');
+    }),
   ],
 };
