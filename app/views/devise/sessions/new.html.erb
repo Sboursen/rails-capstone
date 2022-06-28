@@ -1,5 +1,5 @@
 <header>
-  <%= render partial: "shared/nav_with_back" , locals: { title: "LOGIN" } %>
+  <%= render partial: "shared/nav_with_back" , locals: { title: "LOGIN", back_path_local: root_path } %>
 </header>
 <main class="flex flex-col items-center mt-3 gap-6">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "flex flex-col justify-start gap-6"}) do |f| %>
