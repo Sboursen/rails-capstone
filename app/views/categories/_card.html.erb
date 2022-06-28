@@ -1,0 +1,10 @@
+<div class="card card-side bg-base-100 shadow-sm rounded-md h-24">
+  <figure class="h-full"> <img alt="Movie" src="<%= category.icon %>" ></figure>
+  <div class="grow flex flex-col justify-between pt-4 pb-1 px-6">
+    <h2 class="card-title text-lg"><%= category.name %></h2>
+    <div class="badge badge-outline border-none text-sm font-light"><%= category.created_at.strftime('%d %b %Y') %></div>
+  </div>
+  <div class="card-actions pt-4 pr-2">
+    <span class="font-bold">$<%= "15.00" %></span>
+  </div>
+</div>
