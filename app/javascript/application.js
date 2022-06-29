@@ -4,10 +4,11 @@ import "controllers"
 
 
 
-const flashContainer = document.getElementById("flash-container");
+const flashContainer = document.getElementById('flash-container');
 
 flashContainer.addEventListener('click', (e) => {
-  if(e.currentTarget.id === "flash-container") {
-    e.target.innerHTML = '';
+  e.preventDefault()
+  if (e.currentTarget.id === 'flash-container') {
+    e.currentTarget.innerHTML = '';
   }
 });
