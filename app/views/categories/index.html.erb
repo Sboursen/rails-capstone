@@ -18,8 +18,10 @@
     </div>
   </div>
   <div class="bg-base-100 text-neutral h-14 w-full flex justify-between items-center p-2 flex-none">
-    <span>Gift credit</span>
-    <span class="font-bold">$<%= "45.00" %></span>
+    <span>Total</span>
+    <span class="font-bold">
+      $<%= "#{current_user.categories.reduce(0) { |t, c| t + c.expenses.reduce(0) {|t, e| t + e.amount}}}" %>
+    </span>
   </div>
   <section class="grow flex flex-col gap-2 p-2">
     <% @categories.each do |category| %>

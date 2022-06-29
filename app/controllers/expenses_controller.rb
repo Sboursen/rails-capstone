@@ -1,7 +1,8 @@
 class ExpensesController < ApplicationController
   def index
     @current_user = current_user
-    @expenses = @current_user.categories
+    @category = Category.find(params[:category_id])
+    @expenses = @category.expenses
   end
 
   def new; end
