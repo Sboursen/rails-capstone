@@ -8,21 +8,14 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <!-- <%= javascript_importmap_tags %> -->
   </head>
 
-  <body>
-    <div>
-      <% if current_user.present? %>
-        <%=form_with model: User.new, url: destroy_user_session_path, method: :delete do %>
-          <button class="text-red-600">Sign out</button>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="w-full">
+  <body class="relative">
+    <div class="flex flex-col h-screen">
       <%= yield %>
     </div>
-    <div>
+    <div class="absolute bottom-2">
       <% flash.each do |type, msg| %>
         <% if type == "info" %>
           <div class="alert alert-info shadow-lg">
@@ -68,5 +61,4 @@
       <% end %>
     </div>
   </body>
-
 </html>

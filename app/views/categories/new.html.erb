@@ -1,0 +1,23 @@
+<header>
+  <%= render partial: "shared/nav_with_back" , locals: { title: "CATEGORY", back_path_local: categories_path } %>
+</header>
+
+<main class="flex flex-col items-center mt-3 gap-6">
+  <%= form_with model: Category.new, url: categories_path, method: :post, :html => {:class => "flex flex-col justify-start gap-6"} do |f| %>
+  
+    <div class="field">
+      <%= f.label :name, class: "text-xl" %><br />
+      <%= f.text_field :name, class: "input input-bordered input-primary w-full max-w-xs" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :icon, class: "text-xl" %><br />
+      <%= f.text_field :icon, autofocus: true, class: "input input-bordered input-primary w-full max-w-xs" %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Create", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</main>
+
