@@ -1,5 +1,5 @@
-<%=form_with model: category, url: category_expenses_path(category), method: :get, class: "card card-side bg-base-100 shadow-sm rounded-md h-24 hover:glass cursor-pointer"  do %>
-  <button type="submit" class="card card-side bg-base-100 shadow-sm rounded-md h-24 hover:glass w-full">
+<%=form_with model: category, url: category_expenses_path(category), method: :get, class: "shadow-sm rounded-md hover:glass min-h-24 h-24 bg-base-100 cursor-pointer"  do %>
+  <button type="submit" class="card card-side bg-base-100 rounded-md hover:glass h-full w-full">
     <figure class="h-full">
       <% if File.exists?(category.icon) %>
         <img class="h-full w-32 object-contain" alt="Movie" src="<%= category.icon %>" >

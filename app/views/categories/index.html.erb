@@ -2,18 +2,18 @@
   <%= render partial: "shared/nav" , locals: { title: "CATEGORIES" } %>
 </header>
 
-<main class="flex flex-col grow">
+<main class="flex flex-col">
   <div class="bg-primary text-base-100 h-12 w-full flex justify-end pr-2 flex-none">
     <div class="form-control">
       <label class="label cursor-pointer flex flex-col-reverse">
         <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="most recent" checked />
-        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Most recently updated</span>
+        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Most recent</span>
       </label>
     </div>
     <div class="form-control">
       <label class="label cursor-pointer flex flex-col-reverse">
         <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="least recent" />
-        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Least recent updated</span>
+        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Least recent</span>
       </label>
     </div>
   </div>
@@ -23,7 +23,7 @@
       $<%= "#{current_user.categories.reduce(0) { |t, c| t + c.expenses.reduce(0) {|t, e| t + e.amount}}}" %>
     </span>
   </div>
-  <section class="grow flex flex-col gap-2 p-2">
+  <section class="grow shrink flex flex-col gap-2 p-2 overflow-y-scroll max-h-[calc(100vh - 64px - 56px - 48px -48px)] fix-max-h">
     <% if @categories.length == 0 %>
       <div class="alert alert-info shadow-lg my-auto">
         <div>
@@ -40,8 +40,6 @@
         <%= render partial: "categories/card" , locals: { category: category } %>
       <% end %>
     <% end %>
-
-
   </section>
   <footer class="h-16 w-full flex justify-center items-center bg-secondary flex-none">
     <%=form_with model: Category.new, url: new_category_path, method: :get, class: "w-full flex justify-center" do %>

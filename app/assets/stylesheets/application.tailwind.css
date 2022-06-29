@@ -16,3 +16,6 @@
 }
 
 */
+.fix-max-h {
+  max-height: calc(100vh - 64px - 56px - 48px - 64px);
+}
