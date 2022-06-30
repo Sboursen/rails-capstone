@@ -2,11 +2,10 @@
 
 # Blog With ROR
 
-> The **Recipe app** keeps track of all your recipes, ingredients, and inventory. It allows you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+> The **Portefeuille** is a budget tracking app. After creating an account, it allows to add your daily transactions given some categories. It also allows you add your own categories and list all the transactions belonging to that particular category.
 
 ## Built with
 
-- Ruby
 - Rails
 - Postgresql
 - Devise
