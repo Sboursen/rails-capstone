@@ -11,8 +11,13 @@
 - Postgresql
 - Devise
 - TailWind CSS
+- Daisyui
 - Rspec
 - Capybara
+
+## Live demo
+
+[App demo](https://rails-portefeuille.herokuapp.com/)
 
 ## Getting Started
 
@@ -28,13 +33,13 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone the Repository
 - Go to the project directory
-- Run ```bundle install```
-- Run ```rails db:create```
-- Run ```rails db:migrate```
+- Run `bundle install`
+- Run `rails db:create`
+- Run `rails db:migrate`
 
 ### Usage
 
-- Run ```rails s``` to run the app
+- Run `./bin/dev` to run the app
 
 ## Authors
 
@@ -43,12 +48,6 @@ To get a local copy up and running follow these simple example steps.
 - GitHub: [@Sboursen](https://github.com/Sboursen)
 - Twitter: [@sboursen_dev](https://twitter.com/sboursen_dev)
 - LinkedIn: [@sboursen](https://linkedin.com/in/sboursen)
-
-👤 **Mwafrika Josué**
-
-- GitHub: [@mwafrika](https://github.com/mwafrika)
-- Twitter: [@mwafrikamufung1](@mwafrikamufung1)
-- LinkedIn: [@mwafrika-mufungizi](https://www.linkedin.com/in/mwafrika-mufungizi/)
 
 ## 🤝 Contributing
 

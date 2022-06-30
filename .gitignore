@@ -35,7 +35,7 @@ node_modules/
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
-
+!/app/assets/builds/tailwind.css
 .env
 
 # misc
