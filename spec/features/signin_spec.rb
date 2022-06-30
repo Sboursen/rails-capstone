@@ -23,7 +23,6 @@ feature 'Signing in' do
   scenario 'Signing in with incorrect credentials' do
     fill_in 'Email', with: 'non_existant_user@example.com'
     fill_in 'Password', with: 'wrong_password'
-
     click_button 'Log in'
     expect(page).to have_content 'Invalid Email or password.'
   end
