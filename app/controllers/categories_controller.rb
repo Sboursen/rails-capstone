@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
   def index
     @current_user = current_user
-    @categories = @current_user.categories.order('updated_at DESC')
+    @order = params[:order] || 'DESC'
+    @categories = @current_user.categories.order("updated_at #{@order}")
   end
 
   def new; end
