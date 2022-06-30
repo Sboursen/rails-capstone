@@ -19,7 +19,7 @@
     </figure>
     <div class="grow flex flex-col justify-between pt-4 pb-1 pl-1 pr-5">
       <h2 class="card-title text-lg font-medium text-neutral"><%= category.name %></h2>
-      <div class="badge badge-outline border-none text-sm font-light text-neutral"><%= category.created_at.strftime('%d %b %Y') %></div>
+      <div class="badge badge-outline border-none text-sm font-light text-neutral"><%= category.updated_at.strftime('%d %b %Y') %></div>
     </div>
     <div class="card-actions pt-4 pr-2">
       <span class="font-bold text-neutral">$<%= "#{category.expenses.reduce(0) {|t, e| t + e.amount}}" %></span>
