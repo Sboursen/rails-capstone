@@ -20,7 +20,6 @@ feature 'Signing up' do
     expect(page).to have_content 'prohibited this user from being saved'
   end
 
-
   scenario 'Signing up with the correct credentials format' do
     fill_in 'Name', with: @name
     fill_in 'Email', with: @email
