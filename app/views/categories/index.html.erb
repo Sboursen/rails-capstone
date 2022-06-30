@@ -23,7 +23,7 @@
       $<%= "#{current_user.categories.reduce(0) { |t, c| t + c.expenses.reduce(0) {|t, e| t + e.amount}}}" %>
     </span>
   </div>
-  <section class="grow shrink flex flex-col gap-2 p-2 overflow-y-scroll max-h-[calc(100vh - 64px - 56px - 48px -48px)] fix-max-h">
+  <section class="grow shrink flex flex-col gap-2 p-2 overflow-y-scroll fix-max-h">
     <% if @categories.length == 0 %>
       <div class="alert alert-info shadow-lg my-auto">
         <div>

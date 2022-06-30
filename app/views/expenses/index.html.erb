@@ -2,7 +2,7 @@
   <%= render partial: "shared/nav_with_back" , locals: { title: "TRANSACTIONS" , back_path_local: categories_path } %>
 </header>
 
-<main class="flex flex-col grow shr">
+<main class="flex flex-col">
   <div class="bg-primary text-base-100 h-12 w-full flex justify-end pr-2 flex-none">
     <div class="form-control">
       <label class="label cursor-pointer flex flex-col-reverse">
@@ -25,7 +25,7 @@
       $<%= "#{@category.expenses.reduce(0) {|t, e| t + e.amount}}" %>
     </span>
   </div>
-  <section class="grow flex flex-col gap-2 p-2">
+  <section class="grow shrink flex flex-col gap-2 p-2 fix-max-h">
     <%= render partial: "expenses/card" , locals: { expenses: @expenses, category: @category } %>
   </section>
   <footer class="h-16 w-full flex justify-center items-center bg-secondary flex-none">
