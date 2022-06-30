@@ -8,14 +8,15 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <!-- <%= javascript_importmap_tags %> -->
+    <%= javascript_importmap_tags %>
   </head>
 
   <body class="relative">
     <div class="flex flex-col h-screen max-h-screen">
       <%= yield %>
     </div>
-    <div class="absolute bottom-2 right-2 transition-all ">
+    <a id="flash-container" href=""<%= request.path %>" class="absolute block bottom-1/2 left-0 w-full transition-all cursor-pointer">
+      <span class="hidden">hidden</span>
       <% flash.each do |type, msg| %>
         <% if type == "info" %>
           <div class="alert alert-info shadow-lg">
@@ -59,6 +60,6 @@
           </div>
         <% end %>        
       <% end %>
-    </div>
+    </a>
   </body>
 </html>

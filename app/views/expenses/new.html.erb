@@ -1,0 +1,27 @@
+<header>
+  <%= render partial: "shared/nav_with_back" , locals: { title: "TRANSACTION", back_path_local: category_expenses_path(@category) } %>
+</header>
+
+<main class="flex flex-col items-center mt-3 gap-6">
+  <%= form_with model: Expense.new, url: category_expenses_path(@category), method: :post, :html => {:class => "flex flex-col justify-start gap-6"} do |f| %>
+  
+    <div class="field">
+      <%= f.label :category, class: "text-xl" %><br />
+      <%= f.text_field :category, value: @category.name, disabled: true, class: "input input-bordered input-primary text-bold w-full max-w-xs" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, class: "text-xl" %><br />
+      <%= f.text_field :name, class: "input input-bordered input-primary w-full max-w-xs" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :amount, class: "text-xl" %><br />
+      <%= f.number_field :amount, autofocus: true, class: "input input-bordered input-primary w-full max-w-xs" %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "SAVE", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</main>
+
