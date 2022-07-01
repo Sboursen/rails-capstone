@@ -1,0 +1,34 @@
+<header>
+  <%= render partial: "shared/nav_with_back" , locals: { title: "TRANSACTIONS" , back_path_local: categories_path } %>
+</header>
+
+<main class="flex flex-col">
+  <div class="bg-primary text-base-100 h-12 w-full flex justify-end pr-2 flex-none">
+    <%= link_to category_expenses_path(order: "DESC", category_id: @category.id ), class: "form-control" do %>
+      <label class="label cursor-pointer flex flex-col-reverse">
+        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent"
+          aria-label="most recent" <%= "checked" if @order == "DESC" %> />
+        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Most recent</span>
+    <% end %>
+    <%= link_to category_expenses_path(order: "ASC", category_id: @category.id ), class: "form-control" do %>
+      <label class="label cursor-pointer flex flex-col-reverse">
+        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent"
+          aria-label="least recent" <%= "checked" if @order == "ASC" %> />
+        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Least recent</span>
+    <% end %>
+  </div>
+  <div class="bg-base-100 text-neutral h-14 w-full flex justify-between items-center p-2 flex-none">
+    <span>Total</span>
+    <span class="font-bold">
+      $<%= "#{@category.expenses.reduce(0) {|t, e| t + e.amount}}" %>
+    </span>
+  </div>
+  <section class="grow shrink flex flex-col gap-2 p-2 fix-max-h">
+    <%= render partial: "expenses/card" , locals: { expenses: @expenses, category: @category } %>
+  </section>
+  <footer class="h-16 w-full flex justify-center items-center bg-secondary flex-none">
+    <%=form_with model: Expense.new, url: new_category_expense_path, method: :get, class: "w-full flex justify-center" do %>
+      <button class="btn btn-secondary border-base-100 w-11/12 text-base-100">NEW</button>
+    <% end %>
+  </footer>
+</main>

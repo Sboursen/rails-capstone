@@ -1,0 +1,14 @@
+<div class="w-full flex flex-col justify-end h-screen">
+  <div class="flex flex-col justify-center items-center h-2/3">
+    <h1 class="font-bold text-5xl lg:text-9xl font-title text-neutral">Portefeuille</h1>
+  </div>
+
+  <div class="w-full flex flex-wrap justify-center content-center gap-x-4 gap-y-2 h-1/3">
+    <%=form_with url: new_user_session_path, method: :get do %>
+      <button class="btn btn-primary btn-wide">LOG IN</button>
+    <% end %>
+    <%=form_with url: new_user_registration_path, method: :get do %>
+      <button class="btn btn-wide border-none bg-transparent text-neutral hover:text-accent" >SIGN UP</button>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<header>
+  <%= render partial: "shared/nav" , locals: { title: "CATEGORIES", user: current_user } %>
+</header>
+
+<main class="flex flex-col">
+  <div class="bg-primary text-base-100 h-12 w-full flex justify-end pr-2 flex-none">
+    <%= link_to categories_path(order: "DESC"), class: "form-control" do %>
+      <label class="label cursor-pointer flex flex-col-reverse">
+        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="most recent" <%= "checked" if @order == "DESC"%> />
+        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Most recent</span>
+      </label>
+    <% end %>
+    <%= link_to categories_path(order: "ASC" ), class: "form-control" do %>
+      <label class="label cursor-pointer flex flex-col-reverse">
+        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="least recent" <%= "checked" if @order == "ASC"%> />
+        <span class="text-gray-400 peer-checked:text-white text-lg font-light">Least recent</span>
+      </label>
+    <% end %>
+  </div>
+  <div class="bg-base-100 text-neutral h-14 w-full flex justify-between items-center p-2 flex-none">
+    <span>Total</span>
+    <span class="font-bold">
+      $<%= "#{current_user.categories.reduce(0) { |t, c| t + c.expenses.reduce(0) {|t, e| t + e.amount}}}" %>
+    </span>
+  </div>
+  <section class="grow shrink flex flex-col gap-2 p-2 overflow-y-scroll fix-max-h">
+    <% if @categories.length == 0 %>
+      <div class="alert alert-info shadow-lg my-auto">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>
+            NO CATEGORIES YET!
+          </span>
+        </div>
+      </div>
+    <% else %>
+      <% @categories.each do |category| %>
+        <%= render partial: "categories/card" , locals: { category: category } %>
+      <% end %>
+    <% end %>
+  </section>
+  <footer class="h-16 w-full flex justify-center items-center bg-secondary flex-none">
+    <%=form_with model: Category.new, url: new_category_path, method: :get, class: "w-full flex justify-center" do %>
+      <button class="btn btn-secondary border-base-100 w-11/12 text-base-100">NEW</button>
+    <% end %>
+  </footer>
+</main>

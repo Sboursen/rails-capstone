@@ -1,0 +1,22 @@
+/*
+ *= require font-awesome
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+.fix-max-h {
+  height: calc(100vh - 64px - 56px - 48px - 64px);
+  max-height: calc(100vh - 64px - 56px - 48px - 64px);
+}

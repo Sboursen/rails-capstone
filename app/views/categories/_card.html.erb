@@ -1,0 +1,22 @@
+<%=form_with model: category, url: category_expenses_path(category), method: :get, class: "shadow-sm rounded-md hover:glass min-h-24 h-24 bg-base-100 cursor-pointer"  do %>
+  <button type="submit" class="card card-side bg-base-100 rounded-md hover:glass h-full w-full">
+    <figure class="h-full">
+
+        <img class="w-24 h-24 object-contain" alt="Movie" src="<%= category.icon %>"
+          onerror="
+          this.onerror=null;
+          this.src='https://i2.wp.com/www.coalitionrc.com/wp-content/uploads/2017/01/placeholder.jpg?resize=350%2C350&ssl=1';">
+
+    </figure>
+    <div class="grow flex flex-col justify-between pt-4 pb-1 pl-1 pr-5">
+      <h2 class="card-title text-lg font-medium text-neutral"><%= category.name %></h2>
+      <div class="badge badge-outline border-none text-sm font-light text-neutral"><%= category.updated_at.strftime('%d %b %Y') %></div>
+    </div>
+    <div class="card-actions pt-4 pr-2">
+      <span class="font-bold text-neutral">$<%= "#{category.expenses.reduce(0) {|t, e| t + e.amount}}" %></span>
+    </div>
+  </button>
+<% end %>
+
+
+
