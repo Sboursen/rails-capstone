@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Blog With ROR
 
 > The **Portefeuille** is a budget tracking app. After creating an account, it allows to add your daily transactions given some categories. It also allows you add your own categories and list all the transactions belonging to that particular category.
@@ -14,9 +12,13 @@
 - Rspec
 - Capybara
 
-## Live demo
+## Live link
 
-[App demo](https://rails-portefeuille.herokuapp.com/)
+[App link](https://rails-portefeuille.herokuapp.com/)
+
+## App demo
+
+[demo](https://www.loom.com/share/f80f41d78f18472386c93de397065f82)
 
 ## Getting Started
 
@@ -60,7 +62,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Microverse
+- ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
+
+- Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 
 ## 📝 License
 
