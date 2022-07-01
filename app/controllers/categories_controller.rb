@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
   def index
     @current_user = current_user
-    @categories = @current_user.categories.order('updated_at DESC')
+    @order = params[:order] || 'DESC'
+    @categories = @current_user.categories.order("updated_at #{@order}")
   end
 
   def new; end
@@ -10,10 +11,10 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.author_id = current_user.id
     if @category.save
-      flash[:notice] = 'Your category was successfully created'
+      flash[:success] = 'Your category was successfully created'
       redirect_to categories_path
     else
-      flash[:notice] = 'Failed to create the category!'
+      flash[:error] = 'Failed to create the category!'
       render 'new'
     end
   end

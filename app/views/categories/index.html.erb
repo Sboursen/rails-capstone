@@ -1,21 +1,21 @@
 <header>
-  <%= render partial: "shared/nav" , locals: { title: "CATEGORIES" } %>
+  <%= render partial: "shared/nav" , locals: { title: "CATEGORIES", user: current_user } %>
 </header>
 
 <main class="flex flex-col">
   <div class="bg-primary text-base-100 h-12 w-full flex justify-end pr-2 flex-none">
-    <div class="form-control">
+    <%= link_to categories_path(order: "DESC"), class: "form-control" do %>
       <label class="label cursor-pointer flex flex-col-reverse">
-        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="most recent" checked />
+        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="most recent" <%= "checked" if @order == "DESC"%> />
         <span class="text-gray-400 peer-checked:text-white text-lg font-light">Most recent</span>
       </label>
-    </div>
-    <div class="form-control">
+    <% end %>
+    <%= link_to categories_path(order: "ASC" ), class: "form-control" do %>
       <label class="label cursor-pointer flex flex-col-reverse">
-        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="least recent" />
+        <input type="radio" name="radio-6" class="peer radio w-2 h-2 text-white bg-primary checked:bg-white checked:text-accent" aria-label="least recent" <%= "checked" if @order == "ASC"%> />
         <span class="text-gray-400 peer-checked:text-white text-lg font-light">Least recent</span>
       </label>
-    </div>
+    <% end %>
   </div>
   <div class="bg-base-100 text-neutral h-14 w-full flex justify-between items-center p-2 flex-none">
     <span>Total</span>
@@ -23,7 +23,7 @@
       $<%= "#{current_user.categories.reduce(0) { |t, c| t + c.expenses.reduce(0) {|t, e| t + e.amount}}}" %>
     </span>
   </div>
-  <section class="grow shrink flex flex-col gap-2 p-2 overflow-y-scroll max-h-[calc(100vh - 64px - 56px - 48px -48px)] fix-max-h">
+  <section class="grow shrink flex flex-col gap-2 p-2 overflow-y-scroll fix-max-h">
     <% if @categories.length == 0 %>
       <div class="alert alert-info shadow-lg my-auto">
         <div>

@@ -1,20 +1,8 @@
-<div class="card w-full bg-base-100 rounded-sm shadow-sm [&>figure]:justify-start">
+<div class="card w-full h-full bg-base-100 rounded-sm shadow-sm overflow-y-scroll [&>figure]:justify-start">
   <figure class="p-4 w-full flex flex-row gap-4">
-    <% if File.exists?(category.icon) %>
-      <img class="w-36 h-36 object-contain" alt="Movie" src="<%= category.icon %>" >
-    <% else %>
-      <div class="alert alert-warning w-36 h-18 shadow-sm rounded-sm">
-        <div class="items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
-          <span>
-            Not found
-          </span>
-        </div>
-      </div>
-    <% end %>
+    <img class="w-24 h-24 object-contain" alt="Movie" src="<%= category.icon %>" onerror="
+      this.onerror=null;
+      this.src='https://i2.wp.com/www.coalitionrc.com/wp-content/uploads/2017/01/placeholder.jpg?resize=350%2C350&ssl=1';">
     <h2 class="card-title"><%= category.name %></h2>
   </figure>
   <div class="grid grid-flow-row grid-cols-1 items-center text-center m-4 gap-0.5  <%= 'border-t-2 border-b-2 border-gray-300 bg-gray-300' unless expenses.length == 0 %> ">

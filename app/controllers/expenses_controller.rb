@@ -4,7 +4,8 @@ class ExpensesController < ApplicationController
   def index
     @current_user = current_user
     @category = Category.find(params[:category_id])
-    @expenses = @category.expenses.order('created_at DESC')
+    @order = params[:order] || 'DESC'
+    @expenses = @category.expenses.order("created_at #{@order}")
   end
 
   def new
