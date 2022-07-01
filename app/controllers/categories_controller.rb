@@ -11,10 +11,10 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.author_id = current_user.id
     if @category.save
-      flash[:notice] = 'Your category was successfully created'
+      flash[:success] = 'Your category was successfully created'
       redirect_to categories_path
     else
-      flash[:notice] = 'Failed to create the category!'
+      flash[:error] = 'Failed to create the category!'
       render 'new'
     end
   end
