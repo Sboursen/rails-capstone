@@ -1,4 +1,4 @@
-# Blog With ROR
+# Description
 
 > The **Portefeuille** is a budget tracking app. After creating an account, it allows to add your daily transactions given some categories. It also allows you add your own categories and list all the transactions belonging to that particular category.
 
